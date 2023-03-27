@@ -7,20 +7,32 @@ public class TrainControllerImpl implements TrainController {
 	private int step = 0;
 	private int referenceSpeed = 0;
 	private int speedLimit = 0;
+	private int speedValue = -1;
 
 	@Override
 	public void followSpeed() {
-		if (referenceSpeed < 0) {
-			referenceSpeed = 0;
-		} else {
-		    if(referenceSpeed+step > 0) {
-                referenceSpeed += step;
-            } else {
-		        referenceSpeed = 0;
-            }
+		if(speedValue<0){
+			if (referenceSpeed < 0) {
+				referenceSpeed = 0;
+			} else {
+				if(referenceSpeed+step > 0) {
+					referenceSpeed += step;
+				} else {
+					referenceSpeed = 0;
+				}
+			}
+		}
+		else{
+			referenceSpeed = speedValue;
+			speedValue= -1;
 		}
 
 		enforceSpeedLimit();
+	}
+
+	@Override
+	public void setSpeedByValue(int newSpeed){
+		speedValue = newSpeed;
 	}
 
 	@Override
