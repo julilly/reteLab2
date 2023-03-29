@@ -69,4 +69,4 @@ The figure below illustrates this behavior using an example.
 
 ### This is a smaller header
 
-Ez a szó **_nagyon_** hangsúlyos.
+Ez a szó **_nagyon_** hangsúlyos. Ez pedig a mondat A verziója.
